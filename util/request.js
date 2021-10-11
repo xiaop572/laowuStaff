@@ -9,3 +9,29 @@ export function req(url,params){
 		...params
 	})
 }
+export async function verifyToken(){
+	let token=uni.getStorageSync('token');
+	if(!token)return false;
+	uni.request({
+		url:baseUrl+'/api/token/check',
+		method:'GET',
+		data:{
+			token
+		},
+		success:res=>{
+			console.log(res)
+		}
+	})
+}
+
+export function getAuthentication(){
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url:baseUrl+'/api/index/index',
+			method:'GET',
+			success:res=>{
+				resolve(res)
+			}
+		})
+	})
+}

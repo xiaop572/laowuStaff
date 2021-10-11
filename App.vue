@@ -1,10 +1,14 @@
 <script>
 	import {wxAuthorize} from './util/util.js'
-	import {req} from './util/request.js'
+	import {req,verifyToken,getAuthentication} from './util/request.js'
 	export default {
-		onLaunch: function() {
-			
-			req()
+		onLaunch:async function() {
+			let status=await verifyToken();
+			if(!status){
+				let result=await getAuthentication();
+				let url=result.data.data;
+				window.location.href = url;
+			}
 			wxAuthorize()
 		},
 		onShow: function() {
