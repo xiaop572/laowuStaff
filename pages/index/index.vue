@@ -1,10 +1,11 @@
 <template>
 	<view class="content">
-		
+		111
 	</view>
 </template>
 
 <script>
+	import {req} from '../../util/request.js'
 	export default {
 		data() {
 			return {
@@ -12,7 +13,9 @@
 			}
 		},
 		onLoad() {
-
+			req('/api/user/getUserInfo').then(res=>{
+				console.log(res,"结果")
+			})
 		},
 		methods: {
 

@@ -1,15 +1,25 @@
 <script>
-	import {wxAuthorize} from './util/util.js'
+import {baseUrl} from './util/config.js'
+import qs from 'qs'
 	import {req,verifyToken,getAuthentication} from './util/request.js'
 	export default {
 		onLaunch:async function() {
-			let status=await verifyToken();
-			if(!status){
-				let result=await getAuthentication();
-				let url=result.data.data;
-				window.location.href = url;
-			}
-			wxAuthorize()
+			// let params=qs.parse(location.search.split("?")[1]);//获取url参数
+			// if(params.code){//code跳转到登录页面
+			// window.location.href=`${baseUrl}/api/user/login?code=${params.code}&state=${params.state}&uid=${params.uid}`;
+			// return;
+			// }
+			// if(params.token){//url参数带token 设置token。否则验证现在有token是否过期
+			// 	uni.setStorageSync('token',params.token);
+			// 	return;
+			// }else{
+			// 	let status=await verifyToken();
+			// 	if(!status){
+			// 		let result=await getAuthentication();
+			// 		let url=result.data.data;
+			// 		window.location.href = url;
+			// 	}
+			// }
 		},
 		onShow: function() {
 		},
