@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "qs": "^6.10.1"
   },
   "dependencies": {
     "uview-ui": "^1.8.4"

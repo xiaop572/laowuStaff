@@ -1,10 +1,11 @@
 <template>
 	<view class="content">
-		
+		111
 	</view>
 </template>
 
 <script>
+	import {req} from '../../util/request.js'
 	export default {
 		data() {
 			return {
@@ -12,7 +13,20 @@
 			}
 		},
 		onLoad() {
-
+			req('/api/user/getUserInfo').then(res=>{
+				console.log(res.data)
+				if(res.data.code===1){
+					if(!res.data.data.mobile){
+						uni.redirectTo({
+							url:'../register/register'
+						})
+					}else{
+						uni.redirectTo({
+							url:'../home/home'
+						})
+					}
+				}
+			})
 		},
 		methods: {
 
