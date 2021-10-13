@@ -8,7 +8,7 @@
 			<u-cell-item title="个人设置"></u-cell-item>
 			<u-cell-item  title="接收签约消息"></u-cell-item>
 			<u-cell-item  title="联系驻场" @click="rContact"></u-cell-item>
-			<u-cell-item  title="投诉建议"></u-cell-item>
+			<u-cell-item  title="投诉建议" @click="report"></u-cell-item>
 			
 		</u-cell-group>
 	</view>
@@ -27,6 +27,11 @@
 			rContact(){
 				uni.navigateTo({
 					url:"../contactField/contactField"
+				})
+			},
+			report() {
+				uni.navigateTo({
+					url: '/pages/report/report'
 				})
 			}
 		},
