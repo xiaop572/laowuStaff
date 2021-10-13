@@ -82,7 +82,7 @@
 				this.$u.toast('倒计时结束');
 			},
 			rhome(){
-				uni.redirectTo({
+				uni.switchTab({
 					url:'../home/home'
 				})
 			}

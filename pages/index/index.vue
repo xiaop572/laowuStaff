@@ -13,14 +13,19 @@
 		},
 		onLoad() {
 			req('/api/user/getUserInfo').then(res=>{
-				console.log(res.data)
 				if(res.data.code===1){
+					let data=res.data.data;
+					console.log(data)
+					uni.setStorageSync("userInfo",{
+						avatar:data.avatar,
+						nickname:data.nickname
+					})
 					if(!res.data.data.mobile){
 						uni.redirectTo({
 							url:'../register/register'
 						})
 					}else{
-						uni.redirectTo({
+						uni.switchTab({
 							url:'../home/home'
 						})
 					}
