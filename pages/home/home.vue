@@ -7,14 +7,14 @@
 				<text>工资查询</text>
 			</view>
 			<view>
-				<image src="../../static/tuijian.png" mode="widthFix"></image>
+				<image src="../../static/tuijian.png" mode="widthFix" @click="rRecommend"></image>
 				<text>员工内荐</text>
 			</view>
-			<view>
+			<view @click="rMyRecommend">
 				<image src="../../static/zhaopin.png" mode="widthFix"></image>
 				<text>我的内荐</text>
 			</view>
-			<view>
+			<view @click="rCheck">
 				<image src="../../static/gongshi.png" mode="widthFix"></image>
 				<text>工时核对</text>
 			</view>
@@ -28,6 +28,21 @@
 			rWages(){
 				uni.navigateTo({
 					url:"../wages/wages"
+				})
+			},
+			rRecommend(){
+				uni.navigateTo({
+					url:"../recommend/recommend"
+				})
+			},
+			rMyRecommend(){
+				uni.navigateTo({
+					url:'../myRecommend/myRecommend'
+				})
+			},
+			rCheck(){
+				uni.navigateTo({
+					url:'../check/check'
 				})
 			}
 		}

@@ -32,7 +32,16 @@
                 "enablePullDownRefresh": false
             }
             
-        }
+        },
+		{
+			"path": "pages/recommend/recommend"
+		},
+		{
+			"path": "pages/myRecommend/myRecommend"
+		},
+		{
+			"path": "pages/check/check"
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

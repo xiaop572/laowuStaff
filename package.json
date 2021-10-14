@@ -11,9 +11,11 @@
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^6.0.1",
-    "qs": "^6.10.1"
+    "qs": "^6.10.1",
+    "tki-qrcode": "^0.1.6"
   },
   "dependencies": {
+    "qrcodejs2": "0.0.2",
     "uview-ui": "^1.8.4"
   }
 }
