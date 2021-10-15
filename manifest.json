@@ -73,7 +73,8 @@
         "title" : "人力资源",
         "domain" : "http://people.phper.wiki/service",
         "router" : {
-            "base" : "/service"
+            "base" : "/service",
+            "mode" : "history"
         }
     }
 }

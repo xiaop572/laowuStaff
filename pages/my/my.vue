@@ -5,7 +5,7 @@
 			<text>{{userInfo.nickname}}</text>
 		</view>
 		<u-cell-group>
-			<u-cell-item  title="接收签约消息"></u-cell-item>
+			<u-cell-item  title="个人信息" @click="rEditInfo"></u-cell-item>
 			<u-cell-item  title="联系驻场" @click="rContact"></u-cell-item>
 			<u-cell-item  title="投诉建议" @click="report"></u-cell-item>
 			
@@ -31,6 +31,11 @@
 			report() {
 				uni.navigateTo({
 					url: '/pages/report/report'
+				})
+			},
+			rEditInfo(){
+				uni.navigateTo({
+					url:'/pages/editInfo/editInfo'
 				})
 			}
 		},
