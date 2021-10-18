@@ -10,11 +10,16 @@
 			<u-cell-item  title="投诉建议" @click="report"></u-cell-item>
 			
 		</u-cell-group>
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
 <script>
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				userInfo: {

@@ -4,7 +4,7 @@
 			<u-icon name="info-circle-fill" color="#f49928" size="60" top="10"></u-icon>
 			<text>以下为重要信息,请如实填写...</text>
 		</view>
-		<u-form :model="form1" ref="uForm" label-align="left" label-width="140" class="form">
+		<u-form :model="form1" ref="uForm" label-align="left" label-width="200" class="form">
 			<u-form-item label="真实姓名">
 				<u-input v-model="form1.realname" />
 			</u-form-item>
@@ -20,6 +20,7 @@
 		</u-form>
 		<u-button type="primary" class="submitBtn" @click="submit">提交</u-button>
 		<u-toast ref="uToast" />
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -27,7 +28,11 @@
 	import {
 		req
 	} from '../../util/request.js'
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				form1: {
@@ -90,7 +95,9 @@
 	page {
 		height: 100%;
 	}
-
+	/deep/ .uni-tabbar-bottom{
+		display: block !important;
+	}
 	.register {
 		background: #f2f2f2;
 		height: 100%;

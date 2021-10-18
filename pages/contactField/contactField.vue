@@ -11,7 +11,7 @@
 					<td>{{item.mobile}}</td>
 				</tr>
 		</table>
-
+<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -19,7 +19,11 @@
 	import {
 		req
 	} from '../../util/request.js'
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				fieldList: []

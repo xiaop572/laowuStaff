@@ -5,6 +5,7 @@
 			<tki-qrcode ref="qrcode" :val="url" :onval="true" :size="400" :lv="1" class="qr" />
 			<text>长按二维码分享</text>
 		</view>
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -13,6 +14,7 @@
 		req
 	} from '../../util/request.js'
 	import tkiQrcode from "@/components/tki-qrcode/tki-qrcode.vue"
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
 		data() {
 			return {
@@ -23,6 +25,7 @@
 		methods: {},
 		components: {
 			tkiQrcode,
+			tabBar
 		},
 		onLoad() {
 			this.nickname = uni.getStorageSync("userInfo").nickname;

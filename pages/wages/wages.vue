@@ -32,6 +32,7 @@
 			<tr><td>实发工资</td><td>{{data.curr_money}}</td></tr>
 		</table>
 		<u-picker mode="time" v-model="show" :params="params" @confirm="confirm"></u-picker>
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -39,7 +40,11 @@
 	import {
 		req
 	} from '../../util/request.js'
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				nowDate: "",

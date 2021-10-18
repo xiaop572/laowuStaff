@@ -76,6 +76,7 @@
 			<u-button class="affirm" @click="submit">工时确认</u-button>
 		</view>
 		<u-toast ref="uToast" />
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -84,7 +85,11 @@
 		req
 	} from '../../util/request.js'
 	import moment from 'moment'
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		computed:{
 			time(){
 				return moment(this.data.createtime*1000).format('YYYY-MM')
@@ -154,12 +159,14 @@
 						...params
 					}
 				}).then(res => {
-					console.log(res)
-					this.$refs.uToast.show({
-						title: res.data.msg,
-						type: 'error',
-						position: 'top'
-					})
+					if(res.data.code===0){
+						this.$refs.uToast.show({
+							title: '已完成工时确认',
+							type: 'error',
+							position: 'top'
+						})
+					}
+					
 				})
 			}
 		}

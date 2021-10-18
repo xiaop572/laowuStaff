@@ -10,6 +10,7 @@
 			<text
 				class="time">成为内荐时间:{{new Date(item.createtime*1000).getFullYear()}}-{{new Date(item.createtime*1000).getMonth()+1}}{{new Date(item.createtime*1000).getDate()}}</text>
 		</view>
+		<tab-bar></tab-bar>
 	</view>
 </template>
 
@@ -17,7 +18,11 @@
 	import {
 		req
 	} from '../../util/request.js'
+	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				page: 1,

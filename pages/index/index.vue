@@ -25,7 +25,7 @@
 							url:'../register/register'
 						})
 					}else{
-						uni.switchTab({
+						uni.navigateTo({
 							url:'../home/home'
 						})
 					}
