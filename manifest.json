@@ -71,10 +71,10 @@
     "vueVersion" : "2",
     "h5" : {
         "title" : "人力资源",
-        "domain" : "http://people.phper.wiki/service",
+        "domain" : "http://people.phper.wiki/service/user",
         "router" : {
             "base" : "/service/user",
-            "mode" : "history"
+            "mode" : "hash"
         }
     }
 }

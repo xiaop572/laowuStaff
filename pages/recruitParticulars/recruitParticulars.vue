@@ -39,7 +39,6 @@
 					id: options.id
 				}
 			}).then(res => {
-				console.log(res)
 				this.data = res.data.data;
 			})
 		}

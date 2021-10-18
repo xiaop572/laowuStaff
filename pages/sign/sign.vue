@@ -1,7 +1,7 @@
 <template>
 	<view  class="word">
 		<text class="caption" v-if="show">签约前请先完善银行卡信息</text>
-		<button type="primary" class="btn"  v-if="show">去完善</button>
+		<button type="primary" class="btn" v-if="show" @click="rEditInfo">去完善</button>
 		<view v-html="word"></view>
 		<tab-bar></tab-bar>
 	</view>
@@ -25,6 +25,13 @@
 				show:false
 			}
 		},
+		methods:{
+			rEditInfo(){
+				uni.redirectTo({
+					url:'../editInfo/editInfo'
+				})
+			}
+		},
 		onLoad() {
 			req('/api/index/sign').then(res => {
 				console.log(res)
@@ -45,7 +52,6 @@
 <style lang="less">
 	page {
 		background: url('../../static/tuijianBg.jpg') no-repeat;
-		height: 100%;
 		background-attachment: fixed;
 		background-size: 100% 100%;
 	}

@@ -7,8 +7,8 @@
 		<view class="reBlock" v-for="item in recommandList" :key="item.id">
 			<image :src="item.avatar" mode="widthFix"></image>
 			<text class="name">{{item.username}}</text>
-			<text
-				class="time">成为内荐时间:{{new Date(item.createtime*1000).getFullYear()}}-{{new Date(item.createtime*1000).getMonth()+1}}{{new Date(item.createtime*1000).getDate()}}</text>
+			<text class="time">成为内荐时间:{{item.jointime_text}}</text>
+			<text class="state">{{item.state==='0'?'未入职':'已入职'}}</text>
 		</view>
 		<tab-bar></tab-bar>
 	</view>
@@ -18,6 +18,7 @@
 	import {
 		req
 	} from '../../util/request.js'
+	import moment from 'moment'
 	import tabBar from '../../components/tabbar/tabbar.vue'
 	export default {
 		components: {
@@ -28,31 +29,34 @@
 				page: 1,
 				limit: 10,
 				recommandList: [],
-				total:0
+				total: 0
 			}
 		},
 		methods: {
+			time(d) {
+				return moment(d * 1000).format('YYYY-MM-dd')
+			},
 			last() {
-				if(this.page>1){
+				if (this.page > 1) {
 					this.page--;
 					this.getdata()
 				}
 			},
 			next() {
-				if(this.page<this.total/this.limit){
+				if (this.page < this.total / this.limit) {
 					this.page++;
 					this.getdata()
 				}
 			},
-			getdata(){
+			getdata() {
 				req('/api/user/inviteList', {
 					data: {
 						page: this.page,
 						limit: this.limit
 					}
 				}).then(res => {
-					this.total=res.data.data.total;
-					this.recommandList=res.data.data.data;
+					this.total = res.data.data.total;
+					this.recommandList = res.data.data.data;
 				})
 			}
 		},
@@ -66,6 +70,7 @@
 	page {
 		background: #f2f2f2;
 	}
+
 	.Btn {
 		width: 50%;
 		float: left;
@@ -111,6 +116,13 @@
 			position: absolute;
 			left: 160rpx;
 			top: 100rpx;
+		}
+
+		.state {
+			position: absolute;
+			right: 40rpx;
+			top: 50rpx;
+			color: red;
 		}
 	}
 </style>

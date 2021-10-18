@@ -71,7 +71,8 @@
 				</u-radio-group>
 			</view>
 			<view class="textarea">
-				<u-input v-model="question" placeholder="疑问描述" :type="type" :border="border" :height="height" :auto-height="autoHeight" />
+				<u-input v-model="question" placeholder="疑问描述" :type="type" :border="border" :height="height"
+					:auto-height="autoHeight" />
 			</view>
 			<u-button class="affirm" @click="submit">工时确认</u-button>
 		</view>
@@ -90,9 +91,13 @@
 		components: {
 			tabBar
 		},
-		computed:{
-			time(){
-				return moment(this.data.createtime*1000).format('YYYY-MM')
+		computed: {
+			time() {
+				if (this.data.createtime) {
+					return moment(this.data.createtime * 1000).format('YYYY-MM')
+				}
+				return ''
+
 			}
 		},
 		data() {
@@ -159,14 +164,14 @@
 						...params
 					}
 				}).then(res => {
-					if(res.data.code===0){
+					if (res.data.code === 0) {
 						this.$refs.uToast.show({
 							title: '已完成工时确认',
 							type: 'error',
 							position: 'top'
 						})
 					}
-					
+
 				})
 			}
 		}
